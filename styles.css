@@ -196,20 +196,29 @@ button, input, select, textarea {
 
 .logo__brand {
   font-weight: 800;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   color: var(--dark);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
+.logo__slogan {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  line-height: 1.2;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
 .logo__sub {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: #0284c7;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  margin-top: 3px;
+  margin-top: 1px;
   white-space: nowrap;
 }
 
