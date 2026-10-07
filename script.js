@@ -21,15 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Modern Dialog Management with Light-Dismiss Fallback
   const modalLead = document.getElementById('modalLead');
   const modalPortal = document.getElementById('modalPortal');
-  const modalArticle = document.getElementById('modalArticle');
   const modalLeadTitle = document.getElementById('modalLeadTitle');
   const modalLeadServiceInput = document.getElementById('modalLeadService');
-  const modalArticleTitle = document.getElementById('modalArticleTitle');
-  const modalArticleCategory = document.getElementById('modalArticleCategory');
-  const modalArticleTime = document.getElementById('modalArticleTime');
-  const modalArticleDate = document.getElementById('modalArticleDate');
-  const modalArticleBody = document.getElementById('modalArticleBody');
-  const modalArticlePermalink = document.getElementById('modalArticlePermalink');
 
   const setupDialog = (dialog) => {
     if (!dialog) return;
@@ -59,55 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupDialog(modalLead);
   setupDialog(modalPortal);
-  setupDialog(modalArticle);
-
-  // Article Reader Modal Opener
-  const openArticleModal = (articleId) => {
-    if (!modalArticle || typeof BLOG_ARTICLES === 'undefined') return;
-    const article = BLOG_ARTICLES.find(a => a.id === articleId);
-    if (!article) return;
-
-    if (modalArticleTitle) modalArticleTitle.textContent = article.title;
-    if (modalArticleCategory) modalArticleCategory.textContent = article.categoryLabel;
-    if (modalArticleTime) modalArticleTime.textContent = '⏱️ ' + article.readingTime + ' чтения';
-    if (modalArticleDate) modalArticleDate.textContent = article.date;
-    if (modalArticleBody) modalArticleBody.innerHTML = article.content;
-    if (modalArticlePermalink) modalArticlePermalink.href = `blog.html#${article.id}`;
-
-    modalArticle.showModal();
-  };
-
-  document.querySelectorAll('[data-open-article]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const articleId = btn.dataset.openArticle;
-      openArticleModal(articleId);
-    });
-  });
-
-  // Blog Category Filters
-  const filterBtns = document.querySelectorAll('.blog-filter-btn');
-  const blogCards = document.querySelectorAll('#mainBlogGrid .blog-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('is-active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('is-active');
-      btn.setAttribute('aria-selected', 'true');
-
-      const filter = btn.dataset.filter;
-      blogCards.forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
 
   // Trigger modal open from buttons with dataset
   document.querySelectorAll('[data-open-modal]').forEach(btn => {
