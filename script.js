@@ -104,35 +104,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const calcPlanDisplay = document.getElementById('calcPlan');
 
   function calculateEstimate() {
-    let basePrice = 220000;
-    let days = 5;
-    let recommendedPlan = 'Базовый (до 5 польз.)';
+    let basePrice = 210000;
+    let days = 6;
+    let recommendedPlan = 'Стандартный (до 50 польз.)';
 
     // Team size factor
     const selectedTeam = document.querySelector('input[name="calc_team"]:checked')?.value || 'small';
     if (selectedTeam === 'micro') {
-      basePrice = 160000;
-      days = 4;
+      basePrice = 120000;
+      days = 3;
       recommendedPlan = 'Базовый (до 5 польз.)';
     } else if (selectedTeam === 'small') {
-      basePrice = 280000;
-      days = 7;
+      basePrice = 210000;
+      days = 6;
       recommendedPlan = 'Стандартный (до 50 польз.)';
     } else if (selectedTeam === 'medium') {
-      basePrice = 520000;
-      days = 14;
+      basePrice = 380000;
+      days = 12;
       recommendedPlan = 'Профессиональный (до 100 польз.)';
     } else if (selectedTeam === 'large') {
-      basePrice = 980000;
-      days = 25;
+      basePrice = 690000;
+      days = 20;
       recommendedPlan = 'Энтерпрайз или Коробочная версия';
     }
 
     // Deployment type factor
     const selectedType = document.querySelector('input[name="calc_type"]:checked')?.value || 'cloud';
     if (selectedType === 'box') {
-      basePrice += 250000;
-      days += 5;
+      basePrice += 180000;
+      days += 4;
     }
 
     // Addons
