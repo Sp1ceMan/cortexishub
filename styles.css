@@ -654,6 +654,11 @@ button, input, select, textarea {
   flex-grow: 1;
 }
 
+.service-card__desc strong {
+  color: var(--dark);
+  font-weight: 700;
+}
+
 .service-card__tags {
   display: flex;
   flex-wrap: wrap;
@@ -2450,6 +2455,10 @@ dialog::backdrop {
 [data-theme="dark"] .service-tag {
   background: #17243e;
   color: #94a3b8;
+}
+
+[data-theme="dark"] .service-card__desc strong {
+  color: #f8fafc;
 }
 
 /* Bitrix Modules & Concepts in Dark Mode */
