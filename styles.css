@@ -527,6 +527,11 @@ button, input, select, textarea {
   max-width: 620px;
 }
 
+.hero__desc strong {
+  color: var(--dark);
+  font-weight: 700;
+}
+
 .hero__actions {
   display: flex;
   align-items: center;
@@ -2410,6 +2415,10 @@ dialog::backdrop {
   border-color: #1e3a8a;
   color: #93c5fd;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="dark"] .hero__desc strong {
+  color: #f8fafc;
 }
 
 [data-theme="dark"] .hero__card {
