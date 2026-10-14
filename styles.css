@@ -1100,6 +1100,31 @@ input:checked + .slider:before {
   color: var(--primary);
 }
 
+.case-card__metric-compare {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.case-card__metric-was {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.case-card__metric-arrow {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.case-card__metric-now {
+  color: var(--primary);
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
 .case-card__metric-label {
   font-size: 0.85rem;
   color: var(--dark-light);
