@@ -324,4 +324,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   } catch (e) {}
+
+  // 10. Floating Bubble Management
+  const floatingBubble = document.getElementById('floatingBubble');
+  const bubbleCloseBtn = document.getElementById('bubbleCloseBtn');
+  if (floatingBubble && bubbleCloseBtn) {
+    if (sessionStorage.getItem('cortexis_bubble_closed')) {
+      floatingBubble.style.display = 'none';
+    }
+    bubbleCloseBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      floatingBubble.style.opacity = '0';
+      floatingBubble.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        floatingBubble.style.display = 'none';
+      }, 300);
+      try {
+        sessionStorage.setItem('cortexis_bubble_closed', 'true');
+      } catch (err) {}
+    });
+  }
 });
