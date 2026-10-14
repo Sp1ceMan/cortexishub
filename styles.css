@@ -1878,20 +1878,6 @@ dialog::backdrop {
   border-color: #93c5fd;
 }
 
-.bitrix-module-card--cta {
-  background: linear-gradient(135deg, var(--primary) 0%, #004ecc 100%);
-  color: var(--white);
-  border: none;
-}
-
-.bitrix-module-card--cta h4 {
-  color: var(--white);
-}
-
-.bitrix-module-card--cta p {
-  color: #dbeafe;
-}
-
 .bitrix-module-icon {
   width: 54px;
   height: 54px;
@@ -1917,6 +1903,41 @@ dialog::backdrop {
   line-height: 1.6;
   margin-bottom: 16px;
   flex-grow: 1;
+}
+
+.bitrix-module-card--cta {
+  background: linear-gradient(135deg, #005ce6 0%, #003ca6 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 28px rgba(0, 92, 230, 0.3);
+}
+
+.bitrix-module-card.bitrix-module-card--cta h4,
+.bitrix-module-card--cta h4 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.bitrix-module-card.bitrix-module-card--cta p,
+.bitrix-module-card--cta p {
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.bitrix-module-card--cta .btn--white {
+  background: #ffffff;
+  color: #005ce6;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.bitrix-module-card--cta .btn--white:hover {
+  background: #f8fafc;
+  color: #0044b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
 }
 
 .module-bullets {
