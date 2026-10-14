@@ -1417,10 +1417,11 @@ input:checked + .slider:before {
 }
 
 .cta-banner p {
-  color: #bfdbfe;
+  color: #f1f5f9;
   font-size: 1.15rem;
-  max-width: 600px;
+  max-width: 620px;
   margin: 0 auto 36px auto;
+  line-height: 1.6;
 }
 
 .cta-banner__actions {
@@ -2470,6 +2471,19 @@ dialog::backdrop {
   color: #94a3b8;
 }
 
+[data-theme="dark"] .bitrix-module-card.bitrix-module-card--cta {
+  background: linear-gradient(135deg, #005ce6 0%, #003ca6 100%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+[data-theme="dark"] .bitrix-module-card.bitrix-module-card--cta h4 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .bitrix-module-card.bitrix-module-card--cta p {
+  color: #f1f5f9;
+}
+
 [data-theme="dark"] .bitrix-module-icon {
   background: rgba(59, 130, 246, 0.16);
   color: #60a5fa;
@@ -2502,6 +2516,21 @@ dialog::backdrop {
 }
 
 [data-theme="dark"] .compare-list li {
+  color: #cbd5e1;
+}
+
+/* Bitrix Bottom CTA Banner in Dark Mode */
+[data-theme="dark"] .bitrix-bottom-cta {
+  background: #111d35;
+  border-color: #1e2f52;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .bitrix-bottom-cta h3 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .bitrix-bottom-cta p {
   color: #cbd5e1;
 }
 
@@ -2848,6 +2877,44 @@ dialog::backdrop {
   color: #ffffff;
   border: 1px solid #334155;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* CTA Banner in Dark Mode */
+[data-theme="dark"] .cta-banner {
+  background: linear-gradient(135deg, #005ce6 0%, #003ca6 100%);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] .cta-banner h2 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .cta-banner p {
+  color: #f1f5f9;
+}
+
+/* Tariffs Banner in Dark Mode */
+[data-theme="dark"] .tariffs-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 1px solid #1e2f52;
+}
+
+[data-theme="dark"] .tariffs-banner h3 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .tariffs-banner p {
+  color: #cbd5e1;
+}
+
+/* Bitrix Concept Banner in Dark Mode */
+[data-theme="dark"] .bitrix-concept-text h3 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .bitrix-concept-text p {
+  color: #cbd5e1;
 }
 
 
