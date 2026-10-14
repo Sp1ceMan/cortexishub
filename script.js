@@ -255,4 +255,73 @@ document.addEventListener('DOMContentLoaded', () => {
       input.value = formatted;
     });
   });
+
+  // 9. Theme Switcher (Dark / Light Mode)
+  const themeToggleBtn = document.getElementById('themeToggle');
+  const mobileThemeToggleBtn = document.getElementById('mobileThemeToggle');
+
+  const getSystemTheme = () => {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const getActiveTheme = () => {
+    return document.documentElement.getAttribute('data-theme') || localStorage.getItem('cortexis-theme') || getSystemTheme();
+  };
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+    if (colorSchemeMeta) {
+      colorSchemeMeta.content = theme;
+    }
+
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) {
+      themeColorMeta.content = theme === 'dark' ? '#080e21' : '#ffffff';
+    }
+
+    if (themeToggleBtn) {
+      const label = theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему';
+      themeToggleBtn.setAttribute('title', label);
+      themeToggleBtn.setAttribute('aria-label', label);
+    }
+
+    const mobileThemeTexts = document.querySelectorAll('.mobile-theme-text');
+    mobileThemeTexts.forEach(txt => {
+      txt.textContent = theme === 'dark' ? 'Светлая тема' : 'Тёмная тема';
+    });
+  };
+
+  const toggleTheme = () => {
+    const current = getActiveTheme();
+    const next = current === 'dark' ? 'light' : 'dark';
+    try {
+      localStorage.setItem('cortexis-theme', next);
+    } catch (e) {}
+    applyTheme(next);
+  };
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  if (mobileThemeToggleBtn) {
+    mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  // Sync initial UI state
+  applyTheme(getActiveTheme());
+
+  // Listen for OS theme changes if user has not explicitly chosen
+  try {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', (e) => {
+        if (!localStorage.getItem('cortexis-theme')) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
+  } catch (e) {}
 });
