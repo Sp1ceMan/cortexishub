@@ -949,16 +949,20 @@ input:checked + .slider:before {
 }
 
 /* Packages Section */
+#packages .container {
+  max-width: 1440px;
+}
+
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .pkg-card {
   background: var(--white);
   border-radius: var(--radius-xl);
-  padding: 40px 32px;
+  padding: 36px 24px;
   border: 1px solid var(--gray-200);
   box-shadow: var(--shadow-sm);
   display: flex;
@@ -1727,6 +1731,11 @@ dialog::backdrop {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
   }
+
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1751,6 +1760,10 @@ dialog::backdrop {
 
 @media (max-width: 640px) {
   .tariffs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .packages-grid {
     grid-template-columns: 1fr;
   }
 }
