@@ -1664,9 +1664,22 @@ dialog::backdrop {
   background: #229ed9;
 }
 
+.floating-btn--tg svg {
+  margin-right: 2px;
+}
+
 .floating-btn--tg:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(34, 158, 217, 0.4);
+  box-shadow: 0 8px 24px rgba(34, 158, 217, 0.45);
+}
+
+.floating-btn--wa {
+  background: #25D366;
+}
+
+.floating-btn--wa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
 }
 
 .floating-btn--call {
@@ -1675,7 +1688,7 @@ dialog::backdrop {
 
 .floating-btn--call:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.45);
 }
 
 /* Responsive Breakpoints */
