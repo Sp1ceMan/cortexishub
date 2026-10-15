@@ -93,9 +93,11 @@ button, input, select, textarea {
   padding: 0 24px;
 }
 
-.section {
+.section,
+section[id] {
   padding: 64px 0;
   position: relative;
+  scroll-margin-top: 92px;
 }
 
 .section--alt {
@@ -244,11 +246,44 @@ button, input, select, textarea {
   font-size: 0.92rem;
   position: relative;
   white-space: nowrap;
-  padding: 6px 2px;
+  padding: 8px 4px;
+  transition: color var(--transition);
+  text-decoration: none;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: var(--primary);
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  opacity: 0;
 }
 
 .nav__link:hover {
   color: var(--primary);
+}
+
+.nav__link:hover::after {
+  transform: scaleX(0.5);
+  opacity: 0.4;
+}
+
+.nav__link.active {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.nav__link.active::after {
+  transform: scaleX(1);
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 102, 255, 0.35);
 }
 
 .header__right {
@@ -471,10 +506,27 @@ button, input, select, textarea {
 }
 
 .mobile-nav__link {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  padding: 12px 0;
+  padding: 12px 14px;
   border-bottom: 1px solid var(--gray-100);
+  border-radius: 8px;
+  transition: all var(--transition);
+  display: block;
+  text-decoration: none;
+}
+
+.mobile-nav__link:hover {
+  color: var(--primary);
+  background: rgba(0, 102, 255, 0.04);
+}
+
+.mobile-nav__link.active {
+  color: var(--primary);
+  font-weight: 700;
+  background: rgba(0, 102, 255, 0.08);
+  border-left: 4px solid var(--primary);
+  padding-left: 18px;
 }
 
 /* Hero Section */
@@ -2590,6 +2642,17 @@ dialog::backdrop {
   color: #60a5fa;
 }
 
+[data-theme="dark"] .nav__link.active {
+  color: #38bdf8;
+  font-weight: 700;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+}
+
+[data-theme="dark"] .nav__link.active::after {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+}
+
 [data-theme="dark"] .header__phone-number {
   color: #ffffff;
 }
@@ -2624,6 +2687,13 @@ dialog::backdrop {
 
 [data-theme="dark"] .mobile-nav__link:hover {
   color: #60a5fa;
+  background: rgba(96, 165, 250, 0.08);
+}
+
+[data-theme="dark"] .mobile-nav__link.active {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-left-color: #38bdf8;
 }
 
 /* Theme Toggle Button in Dark Mode */

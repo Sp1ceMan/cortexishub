@@ -1,21 +1,110 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Toggle
+  // 1. Navigation Active State, Click Highlight & ScrollSpy
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileNav = document.getElementById('mobileNav');
+  const navLinks = document.querySelectorAll('.nav__link');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
+  const allNavLinks = [...navLinks, ...mobileNavLinks];
 
+  let isManualNav = false;
+  let manualNavTimer = null;
+
+  const setActiveNavLink = (targetHash) => {
+    if (!targetHash) return;
+    allNavLinks.forEach(link => {
+      if (link.getAttribute('href') === targetHash) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  };
+
+  // Click handler for all navigation links (desktop and mobile)
+  allNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        setActiveNavLink(href);
+        isManualNav = true;
+        clearTimeout(manualNavTimer);
+        manualNavTimer = setTimeout(() => {
+          isManualNav = false;
+        }, 900);
+
+        // If in mobile menu, close the drawer
+        if (mobileNav && mobileNav.classList.contains('is-active')) {
+          mobileNav.classList.remove('is-active');
+          if (burgerBtn) burgerBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+
+  // Burger button toggle
   if (burgerBtn && mobileNav) {
     burgerBtn.addEventListener('click', () => {
       const isOpen = mobileNav.classList.toggle('is-active');
       burgerBtn.setAttribute('aria-expanded', isOpen);
     });
+  }
 
-    // Close on link click
-    mobileNav.querySelectorAll('.mobile-nav__link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('is-active');
-        burgerBtn.setAttribute('aria-expanded', 'false');
+  // ScrollSpy: auto-highlight menu item as user scrolls through sections
+  const spySections = Array.from(document.querySelectorAll('section[id]')).filter(sec => {
+    const id = sec.getAttribute('id');
+    return Array.from(allNavLinks).some(link => link.getAttribute('href') === `#${id}`);
+  });
+
+  const updateScrollSpy = () => {
+    if (isManualNav || spySections.length === 0) return;
+
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Bottom of the page: activate contacts
+    if (scrollY + windowHeight >= documentHeight - 70) {
+      setActiveNavLink('#contacts');
+      return;
+    }
+
+    const scrollPos = scrollY + 120;
+    let currentId = null;
+
+    for (let i = 0; i < spySections.length; i++) {
+      const sec = spySections[i];
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = sec.getAttribute('id');
+        break;
+      }
+    }
+
+    if (currentId) {
+      setActiveNavLink(`#${currentId}`);
+    } else if (scrollY < 200) {
+      // In hero area, clear active nav highlights
+      allNavLinks.forEach(link => link.classList.remove('active'));
+    }
+  };
+
+  let scrollThrottle = null;
+  window.addEventListener('scroll', () => {
+    if (!scrollThrottle) {
+      scrollThrottle = requestAnimationFrame(() => {
+        updateScrollSpy();
+        scrollThrottle = null;
       });
-    });
+    }
+  }, { passive: true });
+
+  // Initial check on page load if url has hash or page starts scrolled
+  if (window.location.hash) {
+    setActiveNavLink(window.location.hash);
+  } else {
+    updateScrollSpy();
   }
 
   // 2. Modern Dialog Management with Light-Dismiss Fallback
