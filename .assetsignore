@@ -1,0 +1,8 @@
+.git
+.wrangler
+node_modules
+*.py
+*.pptx
+astanahub-*
+preview_*
+MODERATION_GUIDE.md

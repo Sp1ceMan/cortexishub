@@ -167,6 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Handle #support URL hash on initial load or navigation
+  const checkSupportHash = () => {
+    if (window.location.hash === '#support' && modalSupport) {
+      if (!modalSupport.open) {
+        modalSupport.showModal();
+      }
+    }
+  };
+  checkSupportHash();
+  window.addEventListener('hashchange', checkSupportHash);
+
+  if (modalSupport) {
+    modalSupport.addEventListener('close', () => {
+      if (window.location.hash === '#support') {
+        try {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        } catch (e) {}
+      }
+    });
+  }
+
   // Support tariffs switcher inside modalSupport
   const supportPeriodData = {
     m1: {

@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=/#support">
+  <script>
+    // Seamless redirect to in-page popup modal on the main page
+    if (window.location.pathname.includes('tariffs-support')) {
+      window.location.replace('/#support');
+    }
+  </script>
   <title>Тарифы технической поддержки Битрикс24 — Cortexis Казахстан</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
