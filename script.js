@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Modern Dialog Management with Light-Dismiss Fallback
   const modalLead = document.getElementById('modalLead');
   const modalPortal = document.getElementById('modalPortal');
+  const modalSupport = document.getElementById('modalSupport');
   const modalLeadTitle = document.getElementById('modalLeadTitle');
   const modalLeadServiceInput = document.getElementById('modalLeadService');
 
@@ -141,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupDialog(modalLead);
   setupDialog(modalPortal);
+  setupDialog(modalSupport);
 
   // Trigger modal open from buttons with dataset
   document.querySelectorAll('[data-open-modal]').forEach(btn => {
@@ -159,6 +161,99 @@ document.addEventListener('DOMContentLoaded', () => {
         modalLead.showModal();
       } else if (target === 'portal' && modalPortal) {
         modalPortal.showModal();
+      } else if (target === 'support' && modalSupport) {
+        modalSupport.showModal();
+      }
+    });
+  });
+
+  // Support tariffs switcher inside modalSupport
+  const supportPeriodData = {
+    m1: {
+      period: 'в месяц при помесячной оплате',
+      start: { price: '110 000 ₸', sub: '110 000 ₸ / месяц' },
+      base:  { price: '150 000 ₸', sub: '150 000 ₸ / месяц' },
+      stand: { price: '225 000 ₸', sub: '225 000 ₸ / месяц' },
+      pro:   { price: '300 000 ₸', sub: '300 000 ₸ / месяц' }
+    },
+    m3: {
+      period: 'в месяц (-10% скидка)',
+      start: { price: '99 000 ₸', sub: '297 000 ₸ за 3 месяца' },
+      base:  { price: '135 000 ₸', sub: '405 000 ₸ за 3 месяца' },
+      stand: { price: '202 500 ₸', sub: '607 500 ₸ за 3 месяца' },
+      pro:   { price: '225 000 ₸', sub: '675 000 ₸ за 3 месяца' }
+    },
+    m6: {
+      period: 'в месяц (-15% скидка)',
+      start: { price: '93 500 ₸', sub: '561 000 ₸ за 6 месяцев' },
+      base:  { price: '127 500 ₸', sub: '765 000 ₸ за 6 месяцев' },
+      stand: { price: '191 250 ₸', sub: '1 147 500 ₸ за 6 месяцев' },
+      pro:   { price: '212 500 ₸', sub: '1 275 000 ₸ за 6 месяцев' }
+    },
+    m12: {
+      period: 'в месяц при оплате за год (-20%)',
+      start: { price: '88 000 ₸', sub: '1 056 000 ₸ за 12 месяцев' },
+      base:  { price: '120 000 ₸', sub: '1 440 000 ₸ за 12 месяцев' },
+      stand: { price: '180 000 ₸', sub: '2 160 000 ₸ за 12 месяцев' },
+      pro:   { price: '200 000 ₸', sub: '2 400 000 ₸ за 12 месяцев' }
+    }
+  };
+
+  const supportNavBtns = document.querySelectorAll('.support-tab-btn');
+  const supPriceStart = document.getElementById('supPriceStart');
+  const supPeriodStart = document.getElementById('supPeriodStart');
+  const supPriceBase = document.getElementById('supPriceBase');
+  const supPeriodBase = document.getElementById('supPeriodBase');
+  const supPriceStand = document.getElementById('supPriceStand');
+  const supPeriodStand = document.getElementById('supPeriodStand');
+  const supPricePro = document.getElementById('supPricePro');
+  const supPeriodPro = document.getElementById('supPeriodPro');
+
+  const updateSupportPeriod = (pKey) => {
+    const data = supportPeriodData[pKey];
+    if (!data) return;
+
+    supportNavBtns.forEach(b => {
+      b.classList.toggle('active', b.dataset.period === pKey);
+    });
+
+    if (supPriceStart) supPriceStart.textContent = data.start.price;
+    if (supPeriodStart) supPeriodStart.textContent = data.start.sub;
+
+    if (supPriceBase) supPriceBase.textContent = data.base.price;
+    if (supPeriodBase) supPeriodBase.textContent = data.base.sub;
+
+    if (supPriceStand) supPriceStand.textContent = data.stand.price;
+    if (supPeriodStand) supPeriodStand.textContent = data.stand.sub;
+
+    if (supPricePro) supPricePro.textContent = data.pro.price;
+    if (supPeriodPro) supPeriodPro.textContent = data.pro.sub;
+  };
+
+  supportNavBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      updateSupportPeriod(btn.dataset.period);
+    });
+  });
+
+  // Connect tariff selection buttons from modalSupport to modalLead
+  document.querySelectorAll('[data-select-support-tariff]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tariffName = btn.dataset.selectSupportTariff;
+      if (modalSupport) {
+        modalSupport.close();
+      }
+      if (modalLead) {
+        if (modalLeadTitle) {
+          modalLeadTitle.textContent = `Подключить техподдержку: ${tariffName}`;
+        }
+        if (modalLeadServiceInput) {
+          modalLeadServiceInput.value = `Техподдержка Битрикс24 (${tariffName})`;
+        }
+        modalLead.showModal();
+        const nameInput = document.getElementById('mName');
+        if (nameInput) setTimeout(() => nameInput.focus(), 100);
       }
     });
   });

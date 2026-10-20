@@ -805,14 +805,19 @@
         <!-- Tech support banner -->
         <div class="tariffs-banner" style="margin-top: 20px; background: linear-gradient(135deg, #07152f 0%, #0c2754 100%); border: 1px solid rgba(56, 189, 248, 0.35);">
           <div>
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 999px; padding: 4px 12px; font-size: 0.78rem; font-weight: 700; color: #38bdf8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em;">
+              <span style="width: 7px; height: 7px; background: #10b981; border-radius: 50%; box-shadow: 0 0 6px #10b981;"></span>
+              Сопровождение и SLA в Казахстане
+            </div>
             <h3>Техническая поддержка и сопровождение Битрикс24</h3>
             <p>
-              Регламентные проверки воронки продаж, выделенные часы настроек и оперативная помощь от 15 минут.
+              Регламентные проверки воронки продаж, часы настроек, оперативная помощь от 15 минут и обучение команды.
             </p>
           </div>
-          <a href="tariffs-support.html" class="btn btn--primary" target="_blank" style="text-decoration: none; white-space: nowrap;">
+          <button class="btn btn--primary" data-open-modal="support" style="white-space: nowrap; font-size: 0.95rem; padding: 12px 24px; box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4); cursor: pointer;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
             Тарифы техподдержки
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -1528,7 +1533,7 @@
             <li><a href="#services">Подключение WhatsApp</a></li>
             <li><a href="#services">Обучение сотрудников</a></li>
             <li><a href="#tariffs">Лицензии Битрикс24</a></li>
-            <li><a href="tariffs-support.html" target="_blank">Техподдержка Битрикс24</a></li>
+            <li><a href="#support" data-open-modal="support">Техподдержка Битрикс24</a></li>
           </ul>
         </div>
 
@@ -1687,6 +1692,239 @@
           Зарегистрировать портал с бонусами
         </button>
       </form>
+    </div>
+  </dialog>
+
+  <!-- NATIVE MODAL 3: TECHNICAL SUPPORT TARIFFS -->
+  <dialog id="modalSupport" class="modal-dialog--xl" closedby="any" aria-labelledby="modalSupportTitle">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modalSupportTitle" style="display: flex; align-items: center; gap: 10px;">
+          Тарифы технической поддержки Битрикс24
+          <span style="font-size: 0.72rem; font-weight: 700; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; padding: 2px 8px; border-radius: 999px;">РК</span>
+        </h3>
+        <p class="support-modal-header-desc">
+          Ежемесячные проверки воронки продаж, часы настроек портала, оперативная помощь и обучение команды в Казахстане
+        </p>
+      </div>
+      <button class="modal-close-btn" data-dialog-close aria-label="Закрыть модальное окно">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Period Switcher Tabs -->
+      <div class="support-billing-nav" id="supportBillingNav">
+        <button type="button" class="support-tab-btn" data-period="m1">
+          Помесячно
+        </button>
+        <button type="button" class="support-tab-btn" data-period="m3">
+          3 месяца
+          <span class="support-tab-badge">-10%</span>
+        </button>
+        <button type="button" class="support-tab-btn" data-period="m6">
+          6 месяцев
+          <span class="support-tab-badge">-15%</span>
+        </button>
+        <button type="button" class="support-tab-btn active" data-period="m12">
+          12 месяцев
+          <span class="support-tab-badge" style="background: rgba(0, 102, 255, 0.2); color: #0284c7; font-weight: 700;">-20% Выгода</span>
+        </button>
+      </div>
+
+      <!-- 4 Support Tariff Cards -->
+      <div class="support-cards-grid">
+        <!-- Card 1: Начальный -->
+        <div class="support-card" id="cardSupportStart">
+          <div>
+            <div class="support-card__header">
+              <h4 class="support-card__name">Начальный</h4>
+              <span class="support-card__tag">Фундамент автоматизации</span>
+            </div>
+
+            <div class="support-card__price-box">
+              <div class="support-card__price" id="supPriceStart">88 000 ₸</div>
+              <div class="support-card__period" id="supPeriodStart">в месяц при оплате за год</div>
+            </div>
+
+            <ul class="support-card__features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>2 ч</strong> поддержки пользователей (консультации и вопросы)</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>2 ч</strong> на настройку портала и исправление ошибок</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>1 ч</strong> онлайн-обучения с записью</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Ежемесячный аудит CRM, лидов и открытых линий</span>
+              </li>
+              <li>
+                <span class="support-reaction-pill">⚡ Реакция: до 3-х часов</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="support-card__action">
+            <button class="btn btn--secondary" style="width: 100%;" data-select-support-tariff="Начальный">
+              Выбрать Начальный
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Базовый -->
+        <div class="support-card" id="cardSupportBase">
+          <div>
+            <div class="support-card__header">
+              <h4 class="support-card__name">Базовый</h4>
+              <span class="support-card__tag">Расширенные возможности</span>
+            </div>
+
+            <div class="support-card__price-box">
+              <div class="support-card__price" id="supPriceBase">120 000 ₸</div>
+              <div class="support-card__period" id="supPeriodBase">в месяц при оплате за год</div>
+            </div>
+
+            <ul class="support-card__features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>4 ч</strong> поддержки пользователей и куратор</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>4 ч</strong> на настройку портала и регламентов</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>1 ч</strong> онлайн-обучения с видеозаписью</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Ежемесячный аудит воронки и процессов</span>
+              </li>
+              <li>
+                <span class="support-reaction-pill">⚡ Реакция: до 1 часа</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="support-card__action">
+            <button class="btn btn--secondary" style="width: 100%;" data-select-support-tariff="Базовый">
+              Выбрать Базовый
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: Стандарт (Featured) -->
+        <div class="support-card support-card--featured" id="cardSupportStandard">
+          <span class="support-card__badge">Хит продаж в РК</span>
+          <div>
+            <div class="support-card__header">
+              <h4 class="support-card__name">Стандарт</h4>
+              <span class="support-card__tag">Профессиональный рост</span>
+            </div>
+
+            <div class="support-card__price-box">
+              <div class="support-card__price" id="supPriceStand">180 000 ₸</div>
+              <div class="support-card__period" id="supPeriodStand">в месяц при оплате за год</div>
+            </div>
+
+            <ul class="support-card__features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>7 ч</strong> поддержки пользователей</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>7 ч</strong> на настройку портала (всего 14 ч)</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>3 ч</strong> онлайн-обучения с видеозаписью</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Регулярный контроль сделок, лидов и каналов</span>
+              </li>
+              <li>
+                <span class="support-reaction-pill support-reaction-pill--fast">⚡ Реакция: до 30 минут</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="support-card__action">
+            <button class="btn btn--primary" style="width: 100%;" data-select-support-tariff="Стандарт">
+              Подключить Стандарт
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: PRO -->
+        <div class="support-card" id="cardSupportPro">
+          <span class="support-card__badge support-card__badge--pro">VIP Поддержка</span>
+          <div>
+            <div class="support-card__header">
+              <h4 class="support-card__name">PRO</h4>
+              <span class="support-card__tag">Максимальная эффективность</span>
+            </div>
+
+            <div class="support-card__price-box">
+              <div class="support-card__price" id="supPricePro" style="color: #f59e0b;">200 000 ₸</div>
+              <div class="support-card__period" id="supPeriodPro">в месяц при оплате за год</div>
+            </div>
+
+            <ul class="support-card__features">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>14 ч</strong> поддержки пользователей</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>14 ч</strong> на настройку портала (всего 28 ч)</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>5 ч</strong> глубокого обучения с видеозаписью</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Экстренный мониторинг работоспособности 24/7</span>
+              </li>
+              <li>
+                <span class="support-reaction-pill support-reaction-pill--fast">⚡⚡ Реакция: до 15 минут</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="support-card__action">
+            <button class="btn btn--secondary" style="width: 100%;" data-select-support-tariff="PRO">
+              Подключить PRO
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Modal Bottom Bar -->
+      <div class="support-modal-footer">
+        <div class="support-modal-footer__left">
+          <div style="font-size: 0.85rem; line-height: 1.4;">
+            <strong style="color: var(--primary);">Доп. час работы: 15 000 ₸</strong> • Договор с ИП/ТОО, ЭСФ и акты выполненных работ (РК).
+          </div>
+        </div>
+        <div class="support-modal-footer__right">
+          <a href="Cortexis_Tech_Support_Tariffs.pdf" download class="btn btn--secondary" style="font-size: 0.82rem; padding: 7px 14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Скачать регламент (PDF)
+          </a>
+          <a href="https://wa.me/77088068881?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D0%B5%D1%85%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D0%91%D0%B8%D1%82%D1%80%D0%B8%D0%BA%D1%8124" target="_blank" rel="noopener noreferrer" class="btn btn--wa" style="font-size: 0.82rem; padding: 7px 14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.17 8.17 0 0 1-5.82 2.41h-.01c-1.46 0-2.89-.39-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.16 8.16 0 0 1-1.25-4.44c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+            Чат в WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
   </dialog>
 
