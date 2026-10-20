@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тарифы технической поддержки Битрикс24 — Cortexis Казахстан</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-dark: #060c1a;
+      --bg-card: rgba(14, 25, 48, 0.82);
+      --bg-card-inner: rgba(255, 255, 255, 0.04);
+      --border-card: rgba(56, 189, 248, 0.22);
+      --border-card-hover: rgba(56, 189, 248, 0.5);
+      --primary: #0066ff;
+      --primary-glow: rgba(0, 102, 255, 0.35);
+      --cyan: #38bdf8;
+      --cyan-glow: rgba(56, 189, 248, 0.35);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --amber: #f59e0b;
+      --text-white: #ffffff;
+      --text-muted: #94a3b8;
+      --text-dim: #cbd5e1;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(0, 102, 255, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(13, 27, 62, 0.5) 0%, transparent 100%);
+      background-attachment: fixed;
+      color: var(--text-white);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 24px 16px 60px 16px;
+    }
+
+    /* Fixed Top Navigation Bar (Hidden when printing) */
+    .top-toolbar {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      max-width: 1400px;
+      margin: 0 auto 24px auto;
+      background: rgba(10, 19, 39, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 14px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .top-toolbar__brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo-badge {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, #0066ff, #00d2ff);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 0 14px rgba(0, 210, 255, 0.45);
+    }
+
+    .top-toolbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 9px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, #0066ff, #0284c7);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0, 102, 255, 0.4);
+    }
+
+    .btn--primary:hover {
+      box-shadow: 0 6px 20px rgba(0, 102, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .btn--wa {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn--wa:hover {
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .btn--outline {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+    }
+
+    .btn--outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #38bdf8;
+      color: #fff;
+    }
+
+    /* Presentation Wrapper */
+    .deck-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    /* Single Slide (16:9 Aspect Ratio on Desktop) */
+    .slide {
+      background: linear-gradient(145deg, rgba(12, 22, 44, 0.95) 0%, rgba(7, 14, 29, 0.98) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 40px 48px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 102, 255, 0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Cover Slide */
+    .slide--cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 580px;
+      background: linear-gradient(135deg, rgba(9, 18, 38, 0.98) 0%, rgba(6, 12, 24, 0.98) 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .cover-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 24px;
+    }
+
+    .cover-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cover-brand__title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #ffffff 40%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-brand__slogan {
+      font-size: 0.88rem;
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    .partner-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(0, 102, 255, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e0f2fe;
+    }
+
+    .partner-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .cover-body {
+      margin: 40px 0;
+    }
+
+    .cover-tag {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+
+    .cover-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      max-width: 900px;
+    }
+
+    .cover-title span {
+      color: var(--cyan);
+    }
+
+    .cover-desc {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      max-width: 820px;
+      line-height: 1.6;
+    }
+
+    .cover-features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .cover-feat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px 20px;
+    }
+
+    .cover-feat-card strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .cover-feat-card span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .cover-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .cover-footer strong {
+      color: #fff;
+    }
+
+    /* Standard Tariff Slide Layout */
+    .slide-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 20px;
+    }
+
+    .slide-title-area h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .slide-badge-pro {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .slide-badge-hit {
+      background: linear-gradient(135deg, #0284c7, #0066ff);
+      color: #fff;
+      font-size: 0.82rem;
+      padding: 4px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .slide-title-area p {
+      color: var(--cyan);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .slide-category-tag {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 2-Column Tariff Grid */
+    .tariff-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .tariff-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tariff-col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Glass Cards */
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .info-card__header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .info-card__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .info-card__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--emerald);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .sub-item-box {
+      margin-top: 6px;
+      padding-left: 8px;
+      border-left: 2px solid rgba(56, 189, 248, 0.3);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .notice-box {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: #fde68a;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    .reaction-time-badge {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(0, 102, 255, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #38bdf8;
+    }
+
+    /* Pricing Card */
+    .pricing-card {
+      background: linear-gradient(145deg, rgba(14, 28, 56, 0.9) 0%, rgba(10, 20, 40, 0.95) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      padding: 24px 28px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-header {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .pricing-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.2s ease;
+    }
+
+    .price-row--best {
+      background: rgba(0, 102, 255, 0.12);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .price-row__label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .discount-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .price-row__val {
+      text-align: right;
+    }
+
+    .price-old {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-right: 6px;
+    }
+
+    .price-current {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .price-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Extra Hour Banner */
+    .extra-hour-banner {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 14px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .extra-hour-banner__left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .extra-hour-banner__val {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .slide-footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    /* Slide 6: Summary Comparison Table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 14px 18px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .comparison-table th {
+      background: rgba(14, 28, 56, 0.9);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: #e2e8f0;
+      background: rgba(10, 20, 40, 0.6);
+      width: 32%;
+    }
+
+    .comparison-table td {
+      background: rgba(12, 22, 44, 0.6);
+      color: var(--text-dim);
+      font-size: 0.92rem;
+    }
+
+    .comparison-table tr:hover td {
+      background: rgba(0, 102, 255, 0.08);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .col-highlight {
+      background: rgba(0, 102, 255, 0.12) !important;
+      border-left: 1px solid rgba(56, 189, 248, 0.3);
+      border-right: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .td-price {
+      font-weight: 800;
+      color: #38bdf8;
+      font-size: 1.1rem;
+    }
+
+    /* Print Formatting */
+    @page {
+      size: 297mm 210mm; /* A4 Landscape */
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 297mm !important;
+        height: auto !important;
+        background: #060c1a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .top-toolbar {
+        display: none !important;
+      }
+
+      .deck-container {
+        gap: 0 !important;
+        max-width: 297mm !important;
+        width: 297mm !important;
+      }
+
+      .slide {
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        border-radius: 0 !important;
+        border: none !important;
+        width: 297mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+        box-sizing: border-box !important;
+        padding: 16mm 20mm !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow: hidden !important;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 960px) {
+      .tariff-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .slide {
+        padding: 24px 20px;
+      }
+
+      .cover-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP ACTION TOOLBAR -->
+  <header class="top-toolbar">
+    <a href="index.html" class="top-toolbar__brand" title="На главную сайта Cortexis">
+      <div class="brand-logo-badge">C</div>
+      <div>
+        <strong style="font-size: 1.05rem; letter-spacing: -0.01em;">Cortexis</strong>
+        <span style="font-size: 0.78rem; color: #38bdf8; display: block; line-height: 1;">Партнер 1С-Битрикс Казахстан</span>
+      </div>
+    </a>
+
+    <div class="top-toolbar__actions">
+      <a href="index.html" class="btn btn--outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        На сайт
+      </a>
+      <button onclick="window.print()" class="btn btn--outline" title="Распечатать или сохранить в PDF">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Скачать PDF / Печать
+      </button>
+      <a href="https://wa.me/77088068881?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D0%B5%D1%85%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D0%91%D0%B8%D1%82%D1%80%D0%B8%D0%BA%D1%8124" target="_blank" rel="noopener noreferrer" class="btn btn--wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.84a8.17 8.17 0 0 1-5.82 2.41h-.01c-1.46 0-2.89-.39-4.14-1.13l-.3-.18-3.08.81.82-3-.2-.31a8.16 8.16 0 0 1-1.25-4.44c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.1-.23-.17-.48-.29z"/></svg>
+        WhatsApp: +7 708 806-88-81
+      </a>
+    </div>
+  </header>
+
+  <main class="deck-container">
+
+    <!-- SLIDE 1: COVER SLIDE -->
+    <section class="slide slide--cover" id="cover">
+      <div class="cover-header">
+        <div class="cover-brand">
+          <div class="brand-logo-badge" style="width: 44px; height: 44px; font-size: 1.4rem;">C</div>
+          <div>
+            <div class="cover-brand__title">Cortexis</div>
+            <div class="cover-brand__slogan">Интеллект вашего бизнеса</div>
+          </div>
+        </div>
+        <div class="partner-pill">
+          <span class="partner-dot"></span>
+          Официальный партнер «1С-Битрикс Казахстан»
+        </div>
+      </div>
+
+      <div class="cover-body">
+        <span class="cover-tag">Коммерческое предложение • Регламент сопровождения</span>
+        <h1 class="cover-title">
+          Тарифы технической поддержки и сопровождения <span>Битрикс24</span>
+        </h1>
+        <p class="cover-desc">
+          Комплексное обслуживание порталов, оперативное устранение сбоев, регулярный мониторинг воронки продаж, консультации сотрудников и обучение команды с записью в Республике Казахстан.
+        </p>
+
+        <div class="cover-features-grid">
+          <div class="cover-feat-card">
+            <strong>от 15 минут</strong>
+            <span>Время реакции на срочные обращения</span>
+          </div>
+          <div class="cover-feat-card">
+            <strong>Договор и ЭСФ</strong>
+            <span>Официально в РК с закрывающими документами</span>
+          </div>
+          <div class="cover-feat-card">
+            <strong>До 20% выгода</strong>
+            <span>При оплате регламентного пакета на 12 месяцев</span>
+          </div>
+          <div class="cover-feat-card">
+            <strong>Обучение с записью</strong>
+            <span>Повышение квалификации вашей команды</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-footer">
+        <div>
+          ИП «Cortexis» (Назырулаев Файзулла Хайруллаевич) • ИИН: 000216500884
+        </div>
+        <div>
+          г. Шымкент, ул. Жанкожа батыра, 68 • <strong>+7 (708) 806-88-81</strong> • <strong>faizulla@cortexishub.com</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: НАЧАЛЬНЫЙ -->
+    <section class="slide" id="tariff-start">
+      <div class="slide-header">
+        <div class="slide-title-area">
+          <h2>Начальный</h2>
+          <p>Фундамент автоматизации</p>
+        </div>
+        <div class="slide-category-tag">
+          <span>Тарифы техподдержки</span>
+          <span class="partner-dot"></span>
+          <span>Cortexis</span>
+        </div>
+      </div>
+
+      <div class="tariff-grid">
+        <!-- Left: Services -->
+        <div class="tariff-col-left">
+          <!-- Monthly checks -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <h3 class="info-card__title">Ежемесячные проверки</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка стабильной работоспособности портала</span>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка корректности работы по основному процессу продажи: квалификация лидов, конвертация в сделки, классификация сделок и запросов, обработка обращений в открытую линию</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support and dev -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3 class="info-card__title">Поддержка и разработка</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>2 часа поддержки пользователей</strong>
+                  <div class="sub-item-box">
+                    Консультации и ответы на вопросы, переписка со специалистом службы технической поддержки Битрикс24.
+                  </div>
+                </div>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>2 часа на настройку портала</strong>
+                  <div class="sub-item-box">
+                    Исправление некорректной работы ранее настраиваемых инструментов Б24.
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="notice-box">
+              <strong>Примечание:</strong> доработка новых инструментов, которые ранее не были настроены компанией Cortexis, не предусмотрены (оцениваются отдельно).
+            </div>
+
+            <div class="reaction-time-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Время реакции: до 3-х часов
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Education & Pricing -->
+        <div class="tariff-col-right">
+          <!-- Education -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <h3 class="info-card__title">Обучение команды</h3>
+            </div>
+            <div class="check-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>1 час</strong> онлайн-обучения с видеозаписью для сохранения в базу знаний</span>
+            </div>
+          </div>
+
+          <!-- Pricing Table -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span>Стоимость обслуживания</span>
+              <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">в тенге (₸)</span>
+            </div>
+
+            <div class="pricing-tiers">
+              <div class="price-row">
+                <div class="price-row__label">1 месяц</div>
+                <div class="price-row__val">
+                  <span class="price-current">110 000 ₸</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  3 месяца
+                  <span class="discount-badge">скидка 10%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">330 000 ₸</span>
+                    <span class="price-current">297 000 ₸</span>
+                  </div>
+                  <span class="price-sub">99 000 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  6 месяцев
+                  <span class="discount-badge">скидка 15%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">660 000 ₸</span>
+                    <span class="price-current">561 000 ₸</span>
+                  </div>
+                  <span class="price-sub">93 500 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row price-row--best">
+                <div class="price-row__label">
+                  12 месяцев
+                  <span class="discount-badge">скидка 20%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">1 320 000 ₸</span>
+                    <span class="price-current">1 056 000 ₸</span>
+                  </div>
+                  <span class="price-sub">88 000 ₸ / месяц • Макс. выгода</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <div class="extra-hour-banner">
+                <div class="extra-hour-banner__left">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span>Дополнительный час работы:</span>
+                </div>
+                <span class="extra-hour-banner__val">15 000 ₸</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Cortexis • Официальный партнер «1С-Битрикс Казахстан» • Предоставление ЭСФ и актов</div>
+        <div>Подключение тарифа: <a href="https://wa.me/77088068881">+7 (708) 806-88-81</a></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: БАЗОВЫЙ -->
+    <section class="slide" id="tariff-base">
+      <div class="slide-header">
+        <div class="slide-title-area">
+          <h2>Базовый</h2>
+          <p>Расширенные возможности</p>
+        </div>
+        <div class="slide-category-tag">
+          <span>Тарифы техподдержки</span>
+          <span class="partner-dot"></span>
+          <span>Cortexis</span>
+        </div>
+      </div>
+
+      <div class="tariff-grid">
+        <!-- Left: Services -->
+        <div class="tariff-col-left">
+          <!-- Monthly checks -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <h3 class="info-card__title">Ежемесячные проверки</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка стабильной работоспособности портала</span>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка корректности работы по основному процессу продажи: квалификация лидов, конвертация в сделки, классификация сделок и запросов, обработка обращений в открытую линию</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support and dev -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3 class="info-card__title">Поддержка и разработка</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>4 часа поддержки пользователей</strong>
+                  <div class="sub-item-box">
+                    Консультации и ответы на вопросы, переписка со специалистом службы технической поддержки Битрикс24.
+                  </div>
+                </div>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>4 часа на настройку портала</strong>
+                  <div class="sub-item-box">
+                    Исправление некорректной работы ранее настраиваемых инструментов Б24.
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="notice-box">
+              <strong>Примечание:</strong> доработка новых инструментов, которые ранее не были настроены компанией Cortexis, не предусмотрены (оцениваются отдельно).
+            </div>
+
+            <div class="reaction-time-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); color: #34d399;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Время реакции: до 1 часа
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Education & Pricing -->
+        <div class="tariff-col-right">
+          <!-- Education -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <h3 class="info-card__title">Обучение команды</h3>
+            </div>
+            <div class="check-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>1 час</strong> онлайн-обучения с видеозаписью для команды</span>
+            </div>
+          </div>
+
+          <!-- Pricing Table -->
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span>Стоимость обслуживания</span>
+              <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">в тенге (₸)</span>
+            </div>
+
+            <div class="pricing-tiers">
+              <div class="price-row">
+                <div class="price-row__label">1 месяц</div>
+                <div class="price-row__val">
+                  <span class="price-current">150 000 ₸</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  3 месяца
+                  <span class="discount-badge">скидка 10%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">450 000 ₸</span>
+                    <span class="price-current">405 000 ₸</span>
+                  </div>
+                  <span class="price-sub">135 000 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  6 месяцев
+                  <span class="discount-badge">скидка 15%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">900 000 ₸</span>
+                    <span class="price-current">765 000 ₸</span>
+                  </div>
+                  <span class="price-sub">127 500 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row price-row--best">
+                <div class="price-row__label">
+                  12 месяцев
+                  <span class="discount-badge">скидка 20%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">1 800 000 ₸</span>
+                    <span class="price-current">1 440 000 ₸</span>
+                  </div>
+                  <span class="price-sub">120 000 ₸ / месяц • Экономия 360 000 ₸</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <div class="extra-hour-banner">
+                <div class="extra-hour-banner__left">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span>Дополнительный час работы:</span>
+                </div>
+                <span class="extra-hour-banner__val">15 000 ₸</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Cortexis • Официальный партнер «1С-Битрикс Казахстан» • Предоставление ЭСФ и актов</div>
+        <div>Подключение тарифа: <a href="https://wa.me/77088068881">+7 (708) 806-88-81</a></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: СТАНДАРТ -->
+    <section class="slide" id="tariff-standard">
+      <div class="slide-header">
+        <div class="slide-title-area">
+          <h2>Стандарт <span class="slide-badge-hit">Хит продаж</span></h2>
+          <p>Профессиональный рост</p>
+        </div>
+        <div class="slide-category-tag">
+          <span>Тарифы техподдержки</span>
+          <span class="partner-dot"></span>
+          <span>Cortexis</span>
+        </div>
+      </div>
+
+      <div class="tariff-grid">
+        <!-- Left: Services -->
+        <div class="tariff-col-left">
+          <!-- Monthly checks -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <h3 class="info-card__title">Ежемесячные проверки</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка стабильной работоспособности портала</span>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка корректности работы по основному процессу продажи: квалификация лидов, конвертация в сделки, классификация сделок и запросов, обработка обращений в открытую линию</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support and dev -->
+          <div class="info-card" style="border-color: rgba(56, 189, 248, 0.4); box-shadow: 0 12px 30px rgba(0, 102, 255, 0.2);">
+            <div class="info-card__header">
+              <div class="info-card__icon" style="background: rgba(0, 102, 255, 0.2); border-color: #0066ff;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3 class="info-card__title">Поддержка и разработка</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>7 часов поддержки пользователей</strong>
+                  <div class="sub-item-box">
+                    Консультации и ответы на вопросы, переписка со специалистом службы технической поддержки Битрикс24.
+                  </div>
+                </div>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>7 часов на настройку портала</strong>
+                  <div class="sub-item-box">
+                    Исправление некорректной работы ранее настраиваемых инструментов Б24.
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="notice-box">
+              <strong>Примечание:</strong> доработка новых инструментов, которые ранее не были настроены компанией Cortexis, не предусмотрены (оцениваются отдельно).
+            </div>
+
+            <div class="reaction-time-badge" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Время реакции: до 30 минут ⚡⚡
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Education & Pricing -->
+        <div class="tariff-col-right">
+          <!-- Education -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <h3 class="info-card__title">Обучение команды</h3>
+            </div>
+            <div class="check-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>3 часа</strong> глубокого онлайн-обучения с видеозаписью для отдела продаж и руководителей</span>
+            </div>
+          </div>
+
+          <!-- Pricing Table -->
+          <div class="pricing-card" style="border-color: rgba(0, 102, 255, 0.5);">
+            <div class="pricing-header">
+              <span>Стоимость обслуживания</span>
+              <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">в тенге (₸)</span>
+            </div>
+
+            <div class="pricing-tiers">
+              <div class="price-row">
+                <div class="price-row__label">1 месяц</div>
+                <div class="price-row__val">
+                  <span class="price-current">225 000 ₸</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  3 месяца
+                  <span class="discount-badge">скидка 10%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">675 000 ₸</span>
+                    <span class="price-current">607 500 ₸</span>
+                  </div>
+                  <span class="price-sub">202 500 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  6 месяцев
+                  <span class="discount-badge">скидка 15%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">1 350 000 ₸</span>
+                    <span class="price-current">1 147 500 ₸</span>
+                  </div>
+                  <span class="price-sub">191 250 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row price-row--best" style="background: rgba(0, 102, 255, 0.2);">
+                <div class="price-row__label">
+                  12 месяцев
+                  <span class="discount-badge">скидка 20%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">2 700 000 ₸</span>
+                    <span class="price-current">2 160 000 ₸</span>
+                  </div>
+                  <span class="price-sub">180 000 ₸ / месяц • Экономия 540 000 ₸</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <div class="extra-hour-banner">
+                <div class="extra-hour-banner__left">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span>Дополнительный час работы:</span>
+                </div>
+                <span class="extra-hour-banner__val">15 000 ₸</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Cortexis • Официальный партнер «1С-Битрикс Казахстан» • Предоставление ЭСФ и актов</div>
+        <div>Подключение тарифа: <a href="https://wa.me/77088068881">+7 (708) 806-88-81</a></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: PRO -->
+    <section class="slide" id="tariff-pro">
+      <div class="slide-header">
+        <div class="slide-title-area">
+          <h2>PRO <span class="slide-badge-pro">VIP Скорость</span></h2>
+          <p>Максимальная эффективность</p>
+        </div>
+        <div class="slide-category-tag">
+          <span>Тарифы техподдержки</span>
+          <span class="partner-dot"></span>
+          <span>Cortexis</span>
+        </div>
+      </div>
+
+      <div class="tariff-grid">
+        <!-- Left: Services -->
+        <div class="tariff-col-left">
+          <!-- Monthly checks -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <h3 class="info-card__title">Ежемесячные проверки</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка стабильной работоспособности портала</span>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Проверка корректности работы по основному процессу продажи: квалификация лидов, конвертация в сделки, классификация сделок и запросов, обработка обращений в открытую линию</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support and dev -->
+          <div class="info-card" style="border-color: rgba(245, 158, 11, 0.4); box-shadow: 0 12px 32px rgba(245, 158, 11, 0.15);">
+            <div class="info-card__header">
+              <div class="info-card__icon" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3 class="info-card__title">Поддержка и разработка</h3>
+            </div>
+            <ul class="check-list">
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>14 часов поддержки пользователей</strong>
+                  <div class="sub-item-box">
+                    Приоритетные консультации, оперативное решение инцидентов, связь с персональным куратором.
+                  </div>
+                </div>
+              </li>
+              <li class="check-item">
+                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <div>
+                  <strong>14 часов на настройку портала</strong>
+                  <div class="sub-item-box">
+                    Исправление некорректной работы ранее настраиваемых инструментов Б24 и глубокая оптимизация.
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="notice-box">
+              <strong>Примечание:</strong> доработка новых инструментов, которые ранее не были настроены компанией Cortexis, не предусмотрены (оцениваются отдельно).
+            </div>
+
+            <div class="reaction-time-badge" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(245, 158, 11, 0.2)); border-color: #f59e0b; color: #fbbf24;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              Время реакции: до 15 минут ⚡⚡⚡ (Экстренный приоритет)
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Education & Pricing -->
+        <div class="tariff-col-right">
+          <!-- Education -->
+          <div class="info-card">
+            <div class="info-card__header">
+              <div class="info-card__icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <h3 class="info-card__title">Обучение команды</h3>
+            </div>
+            <div class="check-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>5 часов</strong> индивидуального онлайн-обучения с видеозаписью для топ-менеджмента и ключевых сотрудников</span>
+            </div>
+          </div>
+
+          <!-- Pricing Table -->
+          <div class="pricing-card" style="border-color: rgba(245, 158, 11, 0.45);">
+            <div class="pricing-header">
+              <span>Стоимость обслуживания</span>
+              <span style="font-size: 0.85rem; color: #38bdf8; font-weight: 600;">в тенге (₸)</span>
+            </div>
+
+            <div class="pricing-tiers">
+              <div class="price-row">
+                <div class="price-row__label">1 месяц</div>
+                <div class="price-row__val">
+                  <span class="price-current">300 000 ₸</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  3 месяца
+                  <span class="discount-badge">скидка 10%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">750 000 ₸</span>
+                    <span class="price-current">675 000 ₸</span>
+                  </div>
+                  <span class="price-sub">225 000 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row">
+                <div class="price-row__label">
+                  6 месяцев
+                  <span class="discount-badge">скидка 15%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">1 500 000 ₸</span>
+                    <span class="price-current">1 275 000 ₸</span>
+                  </div>
+                  <span class="price-sub">212 500 ₸ / месяц</span>
+                </div>
+              </div>
+
+              <div class="price-row price-row--best" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.5);">
+                <div class="price-row__label">
+                  12 месяцев
+                  <span class="discount-badge" style="background: rgba(245, 158, 11, 0.25); color: #fbbf24; border-color: #f59e0b;">скидка 20%</span>
+                </div>
+                <div class="price-row__val">
+                  <div>
+                    <span class="price-old">3 000 000 ₸</span>
+                    <span class="price-current" style="color: #fbbf24;">2 400 000 ₸</span>
+                  </div>
+                  <span class="price-sub">200 000 ₸ / месяц • Экономия 600 000 ₸</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <div class="extra-hour-banner">
+                <div class="extra-hour-banner__left">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  <span>Дополнительный час работы:</span>
+                </div>
+                <span class="extra-hour-banner__val">15 000 ₸</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>Cortexis • Официальный партнер «1С-Битрикс Казахстан» • Предоставление ЭСФ и актов</div>
+        <div>Подключение тарифа: <a href="https://wa.me/77088068881">+7 (708) 806-88-81</a></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: СРАВНИТЕЛЬНАЯ ТАБЛИЦА И КОНТАКТЫ -->
+    <section class="slide" id="comparison">
+      <div class="slide-header">
+        <div class="slide-title-area">
+          <h2>Сравнение тарифов техподдержки</h2>
+          <p>Выберите оптимальный объем часов и скорость реакции под масштабы вашей компании</p>
+        </div>
+        <div class="slide-category-tag">
+          <span>Сводная таблица</span>
+          <span class="partner-dot"></span>
+          <span>Cortexis РК</span>
+        </div>
+      </div>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Параметры тарифа</th>
+            <th>Начальный</th>
+            <th>Базовый</th>
+            <th class="col-highlight">Стандарт (Хит)</th>
+            <th>PRO (VIP)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Поддержка пользователей в месяц</td>
+            <td>2 часа</td>
+            <td>4 часа</td>
+            <td class="col-highlight"><strong>7 часов</strong></td>
+            <td><strong>14 часов</strong></td>
+          </tr>
+          <tr>
+            <td>Настройка портала в месяц</td>
+            <td>2 часа</td>
+            <td>4 часа</td>
+            <td class="col-highlight"><strong>7 часов</strong></td>
+            <td><strong>14 часов</strong></td>
+          </tr>
+          <tr>
+            <td>Всего включенных часов в месяц</td>
+            <td>4 часа</td>
+            <td>8 часов</td>
+            <td class="col-highlight"><strong style="color: #38bdf8;">14 часов</strong></td>
+            <td><strong style="color: #fbbf24;">28 часов</strong></td>
+          </tr>
+          <tr>
+            <td>Максимальное время реакции</td>
+            <td>до 3-х часов</td>
+            <td>до 1 часа</td>
+            <td class="col-highlight"><strong>до 30 минут ⚡</strong></td>
+            <td><strong style="color: #fbbf24;">до 15 минут ⚡⚡</strong></td>
+          </tr>
+          <tr>
+            <td>Обучение команды с видеозаписью</td>
+            <td>1 час</td>
+            <td>1 час</td>
+            <td class="col-highlight"><strong>3 часа</strong></td>
+            <td><strong>5 часов</strong></td>
+          </tr>
+          <tr>
+            <td>Ежемесячные регламентные проверки</td>
+            <td>Включено (CRM, лиды, каналы)</td>
+            <td>Включено (CRM, лиды, каналы)</td>
+            <td class="col-highlight">Включено (CRM, лиды, каналы)</td>
+            <td>Включено (CRM, лиды, каналы)</td>
+          </tr>
+          <tr>
+            <td>Стоимость (помесячно)</td>
+            <td>110 000 ₸</td>
+            <td>150 000 ₸</td>
+            <td class="col-highlight td-price">225 000 ₸</td>
+            <td class="td-price" style="color: #fbbf24;">300 000 ₸</td>
+          </tr>
+          <tr>
+            <td>Стоимость при оплате за год (-20%)</td>
+            <td><strong>88 000 ₸ / мес</strong><br><small style="color: #94a3b8;">1 056 000 ₸ / год</small></td>
+            <td><strong>120 000 ₸ / мес</strong><br><small style="color: #94a3b8;">1 440 000 ₸ / год</small></td>
+            <td class="col-highlight td-price">
+              <strong>180 000 ₸ / мес</strong><br>
+              <small style="color: #34d399;">2 160 000 ₸ / год</small>
+            </td>
+            <td class="td-price" style="color: #fbbf24;">
+              <strong>200 000 ₸ / мес</strong><br>
+              <small style="color: #fbbf24;">2 400 000 ₸ / год</small>
+            </td>
+          </tr>
+          <tr>
+            <td>Дополнительный час работы</td>
+            <td>15 000 ₸</td>
+            <td>15 000 ₸</td>
+            <td class="col-highlight">15 000 ₸</td>
+            <td>15 000 ₸</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Requisites & Ordering banner -->
+      <div style="margin-top: 32px; background: rgba(14, 25, 48, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 18px; padding: 24px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center;">
+        <div>
+          <h4 style="font-size: 1.15rem; color: #fff; margin-bottom: 8px;">Как начать техническую поддержку:</h4>
+          <ol style="padding-left: 20px; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+            <li>Свяжитесь с нами в WhatsApp или оставьте заявку для экспресс-аудита вашего портала.</li>
+            <li>Согласовываем подходящий тариф и подписываем официальный договор (с ЭСФ для бухгалтерии в РК).</li>
+            <li>Предоставляется персональный чат поддержки и начинается сопровождение в день подписания.</li>
+          </ol>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px; font-size: 0.88rem; color: #e2e8f0; line-height: 1.5;">
+          <strong style="color: #38bdf8; display: block; margin-bottom: 6px; font-size: 0.95rem;">Контакты и реквизиты:</strong>
+          <div>ИП «Cortexis» (Назырулаев Ф. Х.)</div>
+          <div>ИИН: 000216500884</div>
+          <div>Телефон / WhatsApp: <a href="https://wa.me/77088068881" style="color: #38bdf8; text-decoration: none; font-weight: 700;">+7 (708) 806-88-81</a></div>
+          <div>Email: <a href="mailto:faizulla@cortexishub.com" style="color: #38bdf8; text-decoration: none;">faizulla@cortexishub.com</a></div>
+          <div>Офис: г. Шымкент, ул. Жанкожа батыра, 68</div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div>&copy; 2026 ИП «Cortexis». Официальный партнер «1С-Битрикс Казахстан». Все права защищены.</div>
+        <div>Официальный сайт: <a href="https://cortexishub.com" target="_blank">cortexishub.com</a></div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
