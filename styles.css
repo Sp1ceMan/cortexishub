@@ -1767,6 +1767,17 @@ dialog.modal-dialog--xl {
 }
 
 /* Support Tariffs Modal Grid & Components */
+/* On-Page Support Tariffs Block */
+.support-onpage-block {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px dashed var(--gray-200);
+}
+
+[data-theme="dark"] .support-onpage-block {
+  border-top-color: #1e2f52;
+}
+
 .support-modal-header-desc {
   font-size: 0.88rem;
   color: var(--gray-600);

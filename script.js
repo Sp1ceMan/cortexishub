@@ -110,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Modern Dialog Management with Light-Dismiss Fallback
   const modalLead = document.getElementById('modalLead');
   const modalPortal = document.getElementById('modalPortal');
-  const modalSupport = document.getElementById('modalSupport');
   const modalLeadTitle = document.getElementById('modalLeadTitle');
   const modalLeadServiceInput = document.getElementById('modalLeadService');
 
@@ -142,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setupDialog(modalLead);
   setupDialog(modalPortal);
-  setupDialog(modalSupport);
 
   // Trigger modal open from buttons with dataset
   document.querySelectorAll('[data-open-modal]').forEach(btn => {
@@ -161,34 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
         modalLead.showModal();
       } else if (target === 'portal' && modalPortal) {
         modalPortal.showModal();
-      } else if (target === 'support' && modalSupport) {
-        modalSupport.showModal();
       }
     });
   });
 
-  // Handle #support URL hash on initial load or navigation
-  const checkSupportHash = () => {
-    if (window.location.hash === '#support' && modalSupport) {
-      if (!modalSupport.open) {
-        modalSupport.showModal();
-      }
-    }
-  };
-  checkSupportHash();
-  window.addEventListener('hashchange', checkSupportHash);
-
-  if (modalSupport) {
-    modalSupport.addEventListener('close', () => {
-      if (window.location.hash === '#support') {
-        try {
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-        } catch (e) {}
-      }
-    });
-  }
-
-  // Support tariffs switcher inside modalSupport
+  // Support tariffs switcher on the page
   const supportPeriodData = {
     m1: {
       period: 'в месяц при помесячной оплате',
@@ -257,20 +232,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Connect tariff selection buttons from modalSupport to modalLead
+  // Connect tariff selection buttons from support block to modalLead
   document.querySelectorAll('[data-select-support-tariff]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const tariffName = btn.dataset.selectSupportTariff;
-      if (modalSupport) {
-        modalSupport.close();
-      }
       if (modalLead) {
         if (modalLeadTitle) {
           modalLeadTitle.textContent = `Подключить техподдержку: ${tariffName}`;
         }
         if (modalLeadServiceInput) {
-          modalLeadServiceInput.value = `Техподдержка Битрикс24 (${tariffName})`;
+          const activeBtn = document.querySelector('.support-tab-btn.active');
+          const pKey = activeBtn ? activeBtn.dataset.period : 'm1';
+          const pInfo = supportPeriodData[pKey] ? supportPeriodData[pKey].period : '';
+          modalLeadServiceInput.value = `Техподдержка Битрикс24: ${tariffName} (${pInfo})`;
         }
         modalLead.showModal();
         const nameInput = document.getElementById('mName');
