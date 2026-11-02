@@ -604,18 +604,39 @@ section[id] {
 
 .hero__card-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
 .hero__card-badge {
   background: var(--success-light);
   color: #065f46;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.8rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
   font-weight: 600;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.25;
+  flex-shrink: 0;
+}
+
+.hero__card-badge-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.hero__card-badge-sub {
+  font-size: 0.74rem;
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
 }
 
 .hero__list {
@@ -2489,6 +2510,10 @@ dialog.modal-dialog--xl {
 }
 
 @media (max-width: 640px) {
+  .hero__card {
+    padding: 24px 20px;
+  }
+
   .section {
     padding: 44px 0;
   }
@@ -2532,6 +2557,14 @@ dialog.modal-dialog--xl {
 
   .floating-bubble__text span {
     font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .hero__card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }
 
