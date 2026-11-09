@@ -4,3 +4,6 @@ node_modules
 preview_*.png
 astanahub-*
 build_all_icons.py
+
+*.pptx
+*.pdf

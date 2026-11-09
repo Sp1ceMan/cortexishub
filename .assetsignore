@@ -3,6 +3,7 @@
 node_modules
 *.py
 *.pptx
+*.pdf
 astanahub-*
 preview_*
 MODERATION_GUIDE.md
